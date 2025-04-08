@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Guest {
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  phone        String?
+  isConfirmed  Boolean  @default(false)
+  companions   Int      @default(0)
+  message      String?
+  createdAt    DateTime @default(now())
+}
+
+model Gift {
+  id           String   @id @default(uuid())
+  name         String   @unique // Garante que o nome seja único
+  description  String?
+  imageUrl     String?
+  link         String?
+  isPurchased  Boolean  @default(false)
+  purchaser    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  name      String
+  content   String
+  approved  Boolean  @default(true) // Se quiser moderação, comece com false
+  createdAt DateTime @default(now())
+}
