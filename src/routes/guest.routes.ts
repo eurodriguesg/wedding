@@ -6,6 +6,9 @@ const router = Router();
 
 router.post('/', authenticate, GuestController.createGuest);
 router.get('/', authenticate, GuestController.getAllGuests);
-router.post('/:id/rsvp', authenticate, GuestController.confirmRsvp);
+router.post('/:guestId/rsvp', authenticate, GuestController.confirmRsvp);
+router.put('/:guestId', authenticate, GuestController.updateGuest);
+router.delete('/:guestId', authenticate, GuestController.deleteGuest);
+router.put('/:guestId/cancel', authenticate, GuestController.cancelRsvp);
 
 export default router;
