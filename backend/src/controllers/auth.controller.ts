@@ -26,6 +26,9 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 };
 
 export const login = async (req: Request, res: Response): Promise<void> => {
+  console.log('Iniciando login...'); // Adicionado para depuração
+  console.log('Login:', req.body); // Adicionado para depuração
+
   const { email, password } = req.body;
   try {
     const admin = await prisma.admin.findUnique({ where: { email } });
