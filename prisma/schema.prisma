@@ -43,3 +43,11 @@ model Message {
   approved  Boolean  @default(true) // Se quiser moderação, comece com false
   createdAt DateTime @default(now())
 }
+
+model Admin {
+  id       String   @id @default(uuid())
+  name     String
+  email    String   @unique
+  password String
+  createdAt DateTime @default(now())
+}
