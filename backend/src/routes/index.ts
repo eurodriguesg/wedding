@@ -1,9 +1,9 @@
 import { Router }    from 'express';
-import guestRoutes   from './guest.routes';
-import giftRoutes    from './gift.routes';
-import messageRoutes from './message.routes';
-import authRoutes    from './auth.routes';
-import adminRoutes   from './admin.routes';
+import guestRoutes   from '../routes/guest.routes';
+import giftRoutes    from '../routes/gift.routes';
+import messageRoutes from '../routes/message.routes';
+import authRoutes    from '../routes/auth.routes';
+import adminRoutes   from '../routes/admin.routes';
 
 const router = Router();
 

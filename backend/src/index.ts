@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import routes from './routes';
-import { thankYouJob } from './jobs/thank-you.job';
+import routes from '../src/routes';
+import { thankYouJob } from '../src/jobs/thank-you.job';
 import testRoutes from './routes/test.routes';
 
 dotenv.config();
