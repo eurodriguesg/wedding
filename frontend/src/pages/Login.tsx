@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
-    console.log('Componente Login renderizado'); // Adicione este log
+    // console.log('Componente Login renderizado'); // Adicione este log
   
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

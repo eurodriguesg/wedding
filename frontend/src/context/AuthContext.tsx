@@ -9,7 +9,11 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [token, setToken] = useState<string | null>(null);
+    // context/AuthContext.tsx
+    const [token, setToken] = useState<string | null>(() => {
+        return localStorage.getItem('token');
+    });
+  
   
     const login = (token: string) => {
       console.log('Token recebido no login:', token); // Adicione este log
