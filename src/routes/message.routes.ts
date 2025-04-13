@@ -1,14 +1,15 @@
-import { Router } from 'express';
+import { Router }             from 'express';
+import { authenticate }       from '../middlewares/auth.middleware';
 import * as MessageController from '../controllers/message.controller';
 
 const router = Router();
 
-router.post('/', MessageController.createMessage);
-router.get('/', MessageController.getPublicMessages);
+router.post('/', authenticate, MessageController.createMessage);
+router.get('/', authenticate, MessageController.getPublicMessages);
 
 // Admin routes
-router.get('/all', MessageController.getAllMessages);
-router.delete('/:id', MessageController.deleteMessage);
-router.put('/:id/approve', MessageController.approveMessage);
+router.get('/all', authenticate, MessageController.getAllMessages);
+router.delete('/:id', authenticate, MessageController.deleteMessage);
+router.put('/:id/approve', authenticate, MessageController.approveMessage);
 
 export default router;
